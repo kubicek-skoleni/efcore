@@ -8,6 +8,18 @@ namespace BankIS.ConsoleApp
 {
     public class Client
     {
+        public Client()
+        {
+            HomeAddress = new Address();
+        }
+
+        public Client(string street, string city)
+        {
+            HomeAddress = new Address();
+            HomeAddress.Street = street;
+            HomeAddress.City = city;
+        }
+
         /// <summary>
         /// Jméno klienta
         /// </summary>
@@ -24,7 +36,7 @@ namespace BankIS.ConsoleApp
         {
             Console.WriteLine(Name);
 
-            if (HomeAddress != null)
+            if (HomeAddress != null && !string.IsNullOrEmpty(HomeAddress.Street))
             {
                 Console.WriteLine(HomeAddress.Street);
                 Console.WriteLine(HomeAddress.City);
