@@ -15,10 +15,15 @@ namespace BankIS.ConsoleApp
             Client c2 = new Client(ostrava, "Martina Veselá", 33);
             
 
+            // připravte metodu "SaveToFile(string filePath) na klientovi
+
 
             c1.Print();
             Console.WriteLine();
             c2.Print();
+
+            c1.SaveToFile("klient1.txt");
+            c2.SaveToFile("klient2.txt");
             
         }
 

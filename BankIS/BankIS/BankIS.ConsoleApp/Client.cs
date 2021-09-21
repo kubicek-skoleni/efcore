@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,11 +19,15 @@ namespace BankIS.ConsoleApp
             HomeAddress = new Address();
             HomeAddress.Street = street;
             HomeAddress.City = city;
+            Name = jmeno;
+            Age = age;
         }
 
         public Client(Address address, string jmeno = "nezadano", int age = -1)
         {
             HomeAddress = address;
+            Name = jmeno;
+            Age = age;
         }
 
         /// <summary>
@@ -49,6 +54,11 @@ namespace BankIS.ConsoleApp
             {
                 Console.WriteLine("Adresa je null");
             }
+        }
+
+        public void SaveToFile(string pathToFile)
+        {
+            File.WriteAllText(pathToFile, Name);
         }
     }
 }
