@@ -25,5 +25,14 @@ namespace BankIS.ConsoleApp
         {
             Console.WriteLine("Ulice: {0}, Město {1}", Street, City);
         }
+
+        public static bool IsCityAllowed(string city)
+        {
+            //ban na Opavu
+            if (city == "Opava")
+                return false;
+            else
+                return true;
+        }
     }
 }

@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 
 namespace BankIS.ConsoleApp
 {
-    public class Client
+    public class Client : IDisposable
     {
+        static int Counter = 0;
+
         public Client()
         {
             HomeAddress = new Address();
+            Counter = Counter + 1;
         }
 
         public Client(string street, string city, string jmeno = "nezadano", int age = -1)
@@ -21,6 +24,7 @@ namespace BankIS.ConsoleApp
             HomeAddress.City = city;
             Name = jmeno;
             Age = age;
+            Counter = Counter + 1;
         }
 
         public Client(string jmeno = "nezadano", int age = -1)
@@ -28,7 +32,9 @@ namespace BankIS.ConsoleApp
             HomeAddress = new Address();
             Name = jmeno;
             Age = age;
+            Counter = Counter + 1;
         }
+
 
         /// <summary>
         /// Jméno klienta
@@ -67,6 +73,12 @@ namespace BankIS.ConsoleApp
             Console.WriteLine( ToString() );
         }
 
+        public void Print(string prefix)
+        {
+            Console.WriteLine(prefix + " " + ToString());
+        }
+
+
         public void SaveToFile(string pathToFile)
         {
             File.WriteAllText(pathToFile, ToString());
@@ -75,6 +87,11 @@ namespace BankIS.ConsoleApp
         public override string ToString()
         {
             return $"{Name};{Age};{HomeAddress.Street};{HomeAddress.City}";
+        }
+
+        public void Dispose()
+        {
+            // zavreni network spojeni atd.   
         }
     }
 }
