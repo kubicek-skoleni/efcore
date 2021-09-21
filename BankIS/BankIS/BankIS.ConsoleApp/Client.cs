@@ -11,7 +11,7 @@ namespace BankIS.ConsoleApp
         /// <summary>
         /// Jméno klienta
         /// </summary>
-        public string Name { get; set; }
+        public string FirstName { get; set; }
 
         public int Age {  get; set; }
 
@@ -22,7 +22,7 @@ namespace BankIS.ConsoleApp
         /// </summary>
         public void Print()
         {
-            Console.WriteLine(Name);
+            Console.WriteLine(FirstName);
 
             if (HomeAddress != null)
             {
