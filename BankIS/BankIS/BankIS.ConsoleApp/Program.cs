@@ -11,14 +11,11 @@ namespace BankIS.ConsoleApp
 
             Client c1 = new Client(city: "Brno", street: "Kopečná 23", jmeno: "Martin Novák", age: 55);
 
-            Address ostrava = new Address("Ostrava", "Tovární 13");
-            Client c2 = new Client(ostrava, "Martina Veselá", 33);
-
+            Client c2 = new Client("Tovární 13", "Ostrava", "Martina Veselá", 33);
 
             // připravte metodu "SaveToFile(string filePath) na klientovi
 
-            c1.Age = 15;
-            Console.WriteLine(c1.Age);
+            Console.WriteLine("c1: " + c1.ToString());
 
             c1.Print();
             Console.WriteLine();

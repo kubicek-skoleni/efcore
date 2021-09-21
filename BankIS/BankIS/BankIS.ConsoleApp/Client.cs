@@ -23,9 +23,9 @@ namespace BankIS.ConsoleApp
             Age = age;
         }
 
-        public Client(Address address, string jmeno = "nezadano", int age = -1)
+        public Client(string jmeno = "nezadano", int age = -1)
         {
-            HomeAddress = address;
+            HomeAddress = new Address();
             Name = jmeno;
             Age = age;
         }
@@ -64,21 +64,17 @@ namespace BankIS.ConsoleApp
         /// </summary>
         public void Print()
         {
-            Console.WriteLine(Name);
-
-            if (HomeAddress != null)
-            {
-                HomeAddress.Print();
-            }
-            else
-            {
-                Console.WriteLine("Adresa je null");
-            }
+            Console.WriteLine( ToString() );
         }
 
         public void SaveToFile(string pathToFile)
         {
-            File.WriteAllText(pathToFile, Name);
+            File.WriteAllText(pathToFile, ToString());
+        }
+
+        public override string ToString()
+        {
+            return $"{Name};{Age};{HomeAddress.Street};{HomeAddress.City}";
         }
     }
 }
