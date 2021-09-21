@@ -9,9 +9,10 @@ namespace BankIS.ConsoleApp
         {
             Console.WriteLine("Hello World!");
 
-            Address ostrava = new Address();
+            Address ostrava = new Address("Ostrava", "Tovární 13");
+
             ostrava.City = "Ostrava";
-            ostrava.Street = "Tovární 13";
+            ostrava.Street = "Tovární 14";
 
             Client c1 = new Client();
             c1.Name = "Jan Novák";
