@@ -35,7 +35,27 @@ namespace BankIS.ConsoleApp
         /// </summary>
         public string Name { get; set; }
 
-        public int Age {  get; set; }
+        private int _age;
+        private bool _isOverAge = false;
+        public int Age 
+        {
+            get
+            {
+                if (_isOverAge)
+                    return _age;
+                else
+                    return -2;
+            } 
+            set
+            {
+                if (value >= 18)
+                    _isOverAge = true;
+                else
+                    _isOverAge = false;
+
+                _age = value;
+            }
+        }
 
         public Address HomeAddress { get; set; }
 
