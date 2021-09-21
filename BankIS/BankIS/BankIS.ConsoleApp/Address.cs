@@ -23,7 +23,7 @@ namespace BankIS.ConsoleApp
 
         public void Print()
         {
-            Console.WriteLine(Street + " " + City);
+            Console.WriteLine("Ulice: {0}, Město {1}", Street, City);
         }
     }
 }
