@@ -24,31 +24,16 @@ namespace BankIS.ConsoleApp
 
             // LINQ
 
-            int age = 45;
-            //var result = clients.Where(client => client.Age > age).ToList();
-            //Console.WriteLine($"Over {age}:");
-
-            //var result = clients.OrderBy(c => c.Age);
-            //Console.WriteLine($"Ordered by age:");
-
-            //var result = clients.Where(c => c.Age >= 43)
-            //                    .OrderBy(c => c.Age)
-            //                    .ToList();
-            //Console.WriteLine($"Over {age} and ordered by age:");
-
-            // najdete lidi z Brna a seradte podle jmena
-
+            //z olomouce, pouze vek mezi 20-40, seradit podle veku
             var result = clients
-                .Select(c => new { c.Name, c.Age })
-                .OrderByDescending(x => x.Age)
-                .Take(10)
-                .ToList();
-
-
+              .Where(c => c.HomeAddress.City == "Olomouc")
+              .Where(c => c.Age > 20 && c.Age < 40)
+              .OrderBy(c => c.Age)
+              .ToList();
 
             foreach (var item in result)
             {
-                Console.WriteLine($"{item.Name} {item.Age}");
+                Console.WriteLine($"{item}");
             }
         }
 
