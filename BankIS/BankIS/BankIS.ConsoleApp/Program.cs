@@ -24,19 +24,21 @@ namespace BankIS.ConsoleApp
 
             // LINQ
 
-            //zjistit vsechna mesta v datasetu
-            var result = clients.Select(x => x.HomeAddress.City)
-                            .Distinct()
-                            ;
-            
+            //najit nejmladsiho a nejstarsiho z olomouce
+            var result = clients
+                .Where(x => x.HomeAddress.City == "Olomouc")
+                .OrderBy(x => x.Age);
+
+            var oldest = result.Last();
+            var youngest = result.First();
             
 
-            //Console.WriteLine(result);
+            Console.WriteLine($"nejmladsi {youngest} {Environment.NewLine}nejstarsi: {oldest}");
 
-            foreach (var item in result)
-            {
-                Console.WriteLine($"{item}");
-            }
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"{item}");
+            //}
         }
 
     }
