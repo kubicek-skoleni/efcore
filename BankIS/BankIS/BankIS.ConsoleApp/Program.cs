@@ -11,25 +11,18 @@ namespace BankIS.ConsoleApp
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            
-            var file = "dataset_1.txt";
-            Console.WriteLine($"Načítám klienty z {file}");
-
-            var clients = Client.LoadClients(file);
-
-            var cnt = clients.Count;
-            Console.WriteLine($"Počet klientů v seznamu: {cnt}");
-            Console.WriteLine();
 
             BankContext context = new BankContext();
 
-            foreach(var client in clients)
-            {
-                context.Clients.Add(client);
-            }
+            var cnt = context.Clients.Count();
+            Console.WriteLine($"Počet klientů v seznamu: {cnt}");
+            Console.WriteLine();
 
-            context.SaveChanges();
 
+
+
+
+            //context.SaveChanges();
 
             // LINQ
 

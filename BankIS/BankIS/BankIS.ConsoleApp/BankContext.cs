@@ -16,7 +16,7 @@ namespace BankIS.ConsoleApp
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Initial Catalog=bankdb01");
+           options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Initial Catalog=bankdb01");
         }
     }
 }
