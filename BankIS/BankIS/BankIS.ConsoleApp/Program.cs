@@ -17,6 +17,23 @@ namespace BankIS.ConsoleApp
             var c4 = new Client("Poštovní 3", "Praha", "Jitka", 43);
             var c5 = new Client("Hluchá 13", "Plzeň", "Jiří Ondra", 53);
 
+            // vytvořte list klientů a přiřaďte všech 5
+            // klientů do listu
+
+            List<Client> clients = new List<Client>();
+
+            clients.Add(c1);
+            clients.Add(c2);
+            clients.Add(c3);
+            clients.Add(c4);
+            clients.Add(c5);
+
+            var cnt = clients.Count;
+
+            Console.WriteLine($"Počet klientů v seznamu: {cnt}");
+
+
+
 
         }
 
