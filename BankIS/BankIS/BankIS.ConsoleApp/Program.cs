@@ -20,12 +20,6 @@ namespace BankIS.ConsoleApp
 
             var cnt = clients.Count;
             Console.WriteLine($"Počet klientů v seznamu: {cnt}");
-
-            //foreach(var client in clients)
-            //{
-            //    client.Print();
-            //}
-
             Console.WriteLine();
 
             // LINQ
@@ -45,13 +39,16 @@ namespace BankIS.ConsoleApp
             // najdete lidi z Brna a seradte podle jmena
 
             var result = clients
-                .Where(c => c.HomeAddress.City == "Brno")
-                .OrderBy(c => c.Name)
+                .Select(c => new { c.Name, c.Age })
+                .OrderByDescending(x => x.Age)
+                .Take(10)
                 .ToList();
 
-            foreach (var client in result)
+
+
+            foreach (var item in result)
             {
-                client.Print();
+                Console.WriteLine($"{item.Name} {item.Age}");
             }
         }
 
