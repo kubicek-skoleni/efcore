@@ -13,7 +13,7 @@ namespace BankIS.ConsoleApp
             Console.WriteLine("Hello World!");
             //Client.SaveClientsToFile(clients, file);
 
-            var file = "allclients.txt";
+            var file = "dataset_1.txt";
             Console.WriteLine($"Načítám klienty z {file}");
 
             var clients = Client.LoadClients(file);
@@ -21,10 +21,10 @@ namespace BankIS.ConsoleApp
             var cnt = clients.Count;
             Console.WriteLine($"Počet klientů v seznamu: {cnt}");
 
-            foreach(var client in clients)
-            {
-                client.Print();
-            }
+            //foreach(var client in clients)
+            //{
+            //    client.Print();
+            //}
 
             Console.WriteLine();
 
