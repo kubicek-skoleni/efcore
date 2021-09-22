@@ -24,11 +24,10 @@ namespace BankIS.ConsoleApp
 
             // LINQ
 
-            //zjistit kolik lidi je v Brne
+            //prumerny vek lidi v Praze
             var result = clients
-                .Where(x => x.HomeAddress.City == "Brno")
-                .Count()
-                ;
+                .Where(c => c.HomeAddress.City == "Praha")
+                .Average(c => c.Age);
 
             Console.WriteLine(result);
 
