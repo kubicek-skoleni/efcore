@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 
 namespace BankIS.ConsoleApp
@@ -10,6 +11,7 @@ namespace BankIS.ConsoleApp
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            //Client.SaveClientsToFile(clients, file);
 
             var file = "allclients.txt";
             Console.WriteLine($"Načítám klienty z {file}");
@@ -24,8 +26,16 @@ namespace BankIS.ConsoleApp
                 client.Print();
             }
 
-            //Client.SaveClientsToFile(clients, file);
+            // LINQ
 
+            int age = 45;
+            var result = clients.Where(client => client.Age > age).ToList();
+
+            Console.WriteLine($"Over {age}:");
+            foreach(var client in result)
+            {
+                client.Print();
+            }
         }
 
     }
