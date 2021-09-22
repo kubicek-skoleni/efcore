@@ -24,17 +24,18 @@ namespace BankIS.ConsoleApp
 
             // LINQ
 
-            //z olomouce, pouze vek mezi 20-40, seradit podle veku
+            //zjistit kolik lidi je v Brne
             var result = clients
-              .Where(c => c.HomeAddress.City == "Olomouc")
-              .Where(c => c.Age > 20 && c.Age < 40)
-              .OrderBy(c => c.Age)
-              .ToList();
+                .Where(x => x.HomeAddress.City == "Brno")
+                .Count()
+                ;
 
-            foreach (var item in result)
-            {
-                Console.WriteLine($"{item}");
-            }
+            Console.WriteLine(result);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"{item}");
+            //}
         }
 
     }
