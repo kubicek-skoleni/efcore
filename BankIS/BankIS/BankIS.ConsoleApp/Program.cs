@@ -26,13 +26,18 @@ namespace BankIS.ConsoleApp
                 client.Print();
             }
 
+            Console.WriteLine();
+
             // LINQ
 
-            int age = 45;
-            var result = clients.Where(client => client.Age > age).ToList();
+            //int age = 45;
+            //var result = clients.Where(client => client.Age > age).ToList();
+            //Console.WriteLine($"Over {age}:");
 
-            Console.WriteLine($"Over {age}:");
-            foreach(var client in result)
+            var result = clients.OrderBy(c => c.Age);
+
+            Console.WriteLine($"Ordered by age:");
+            foreach (var client in result)
             {
                 client.Print();
             }
