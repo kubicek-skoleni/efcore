@@ -93,5 +93,15 @@ namespace BankIS.ConsoleApp
         {
             // zavreni network spojeni atd.   
         }
+
+
+        public static void SaveClientsToFile(IEnumerable<Client> clients, string file)
+        {
+            foreach (var client in clients)
+            {
+                var clientWithNewLine = client.ToString() + Environment.NewLine;
+                File.AppendAllText(file, clientWithNewLine );
+            }
+        }
     }
 }

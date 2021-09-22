@@ -37,6 +37,9 @@ namespace BankIS.ConsoleApp
                 client.Print();
             }
 
+            var file = "allclients.txt";
+            Console.WriteLine($"Ukládám do {file}");
+            Client.SaveClientsToFile(clients, file);
 
         }
 
