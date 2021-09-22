@@ -32,7 +32,10 @@ namespace BankIS.ConsoleApp
 
             Console.WriteLine($"Počet klientů v seznamu: {cnt}");
 
-
+            foreach(var client in clients)
+            {
+                client.Print();
+            }
 
 
         }
