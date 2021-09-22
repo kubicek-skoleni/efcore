@@ -23,6 +23,8 @@ namespace BankIS.ConsoleApp
 
         public string City {  get; set; }
 
+        public string ZipCode { get; set; }
+
         public void Print()
         {
             Console.WriteLine("Ulice: {0}, Město {1}", Street, City);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,24 +13,31 @@ namespace BankIS.ConsoleApp
         {
             Console.WriteLine("Hello World!");
 
-            BankContext context = new BankContext();
+            using (BankContext context = new BankContext())
+            {
+                //context.Clients.FromSqlRaw("SELECT * ");
 
-            var cnt = context.Clients.Count();
-            Console.WriteLine($"Počet klientů v seznamu: {cnt}");
-            Console.WriteLine();
+                var cnt = context.Clients.Count();
+                Console.WriteLine($"Počet klientů v seznamu: {cnt}");
+                Console.WriteLine();
 
+                //najit nejstarsiho klienta
+                var oldest = context.Clients.OrderByDescending(c => c.Age).First();
 
+                oldest.Print();
 
+                //context.Remove(oldest);
+                //context.SaveChanges();
 
+                //context.SaveChanges();
 
-            //context.SaveChanges();
+                // LINQ
 
-            // LINQ
-
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine($"{item}");
-            //}
+                //foreach (var item in result)
+                //{
+                //    Console.WriteLine($"{item}");
+                //}
+            }
         }
 
     }
