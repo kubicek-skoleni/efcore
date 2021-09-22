@@ -103,5 +103,26 @@ namespace BankIS.ConsoleApp
                 File.AppendAllText(file, clientWithNewLine );
             }
         }
+
+        public static List<Client> LoadClients(string file)
+        {
+            List<Client> result = new List<Client>();
+
+            var lines = File.ReadAllLines(file);
+
+            foreach(var line in lines)
+            {
+                var items = line.Split(';');
+                var name = items[0];
+                var age = int.Parse( items[1] );
+                var street = items[2];
+                var city = items[3];
+
+                Client c = new Client(street: street, city: city, jmeno: name, age: age);
+                result.Add(c);
+            }
+
+            return result;
+        }
     }
 }
