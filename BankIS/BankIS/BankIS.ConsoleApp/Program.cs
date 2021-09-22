@@ -37,10 +37,17 @@ namespace BankIS.ConsoleApp
             //var result = clients.OrderBy(c => c.Age);
             //Console.WriteLine($"Ordered by age:");
 
-            var result = clients.Where(c => c.Age >= 43)
-                                .OrderBy(c => c.Age)
-                                .ToList();
-            Console.WriteLine($"Over {age} and ordered by age:");
+            //var result = clients.Where(c => c.Age >= 43)
+            //                    .OrderBy(c => c.Age)
+            //                    .ToList();
+            //Console.WriteLine($"Over {age} and ordered by age:");
+
+            // najdete lidi z Brna a seradte podle jmena
+
+            var result = clients
+                .Where(c => c.HomeAddress.City == "Brno")
+                .OrderBy(c => c.Name)
+                .ToList();
 
             foreach (var client in result)
             {
