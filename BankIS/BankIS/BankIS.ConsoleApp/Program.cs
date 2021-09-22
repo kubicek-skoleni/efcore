@@ -11,7 +11,9 @@ namespace BankIS.ConsoleApp
         static void Main(string[] args)
         {
             BankContext context = new BankContext();
+
             context.Database.EnsureCreated();
+
 
             Console.WriteLine("Hello World!");
             //Client.SaveClientsToFile(clients, file);
