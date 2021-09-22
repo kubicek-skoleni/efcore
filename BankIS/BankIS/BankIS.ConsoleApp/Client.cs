@@ -35,6 +35,7 @@ namespace BankIS.ConsoleApp
             Counter = Counter + 1;
         }
 
+        public int Id { get; set; }
 
         /// <summary>
         /// Jméno klienta
