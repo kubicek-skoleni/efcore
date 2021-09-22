@@ -24,17 +24,19 @@ namespace BankIS.ConsoleApp
 
             // LINQ
 
-            //prumerny vek lidi v Praze
-            var result = clients
-                .Where(c => c.HomeAddress.City == "Praha")
-                .Average(c => c.Age);
+            //zjistit vsechna mesta v datasetu
+            var result = clients.Select(x => x.HomeAddress.City)
+                            .Distinct()
+                            ;
+            
+            
 
-            Console.WriteLine(result);
+            //Console.WriteLine(result);
 
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine($"{item}");
-            //}
+            foreach (var item in result)
+            {
+                Console.WriteLine($"{item}");
+            }
         }
 
     }
