@@ -60,7 +60,6 @@ namespace BankIS.ConsoleApp
 
         
 
-
         public static void SaveClientsToFile(IEnumerable<Client> clients, string file)
         {
             foreach (var client in clients)

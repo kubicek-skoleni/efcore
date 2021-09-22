@@ -10,14 +10,8 @@ namespace BankIS.ConsoleApp
     {
         static void Main(string[] args)
         {
-            BankContext context = new BankContext();
-
-            context.Database.EnsureCreated();
-
-
             Console.WriteLine("Hello World!");
-            //Client.SaveClientsToFile(clients, file);
-
+            
             var file = "dataset_1.txt";
             Console.WriteLine($"Načítám klienty z {file}");
 
@@ -27,18 +21,17 @@ namespace BankIS.ConsoleApp
             Console.WriteLine($"Počet klientů v seznamu: {cnt}");
             Console.WriteLine();
 
+            BankContext context = new BankContext();
+
+            foreach(var client in clients)
+            {
+                context.Clients.Add(client);
+            }
+
+            context.SaveChanges();
+
+
             // LINQ
-
-            //najit nejmladsiho a nejstarsiho z olomouce
-            var result = clients
-                .Where(x => x.HomeAddress.City == "Olomouc")
-                .OrderBy(x => x.Age);
-
-            var oldest = result.Last();
-            var youngest = result.First();
-            
-
-            Console.WriteLine($"nejmladsi {youngest} {Environment.NewLine}nejstarsi: {oldest}");
 
             //foreach (var item in result)
             //{
