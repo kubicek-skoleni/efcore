@@ -19,6 +19,16 @@ namespace BankIS.MVC.Controllers
             _context = context;
         }
 
+        public string Seed()
+        {
+            var xml = SeedDb.LoadFromXML();
+
+            _context.AddRange(xml);
+            _context.SaveChanges();
+
+            return "ok";
+        }
+
         // GET: Clients
         public async Task<IActionResult> Index()
         {
