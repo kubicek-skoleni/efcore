@@ -43,7 +43,8 @@ namespace BankIS.MVC.Controllers
                 return NotFound();
             }
 
-            var client =  await _context.Clients
+            var client =  await _context
+                .Clients.Include(c => c.Transactions)
                 .Where(m => m.Id == id)
                 .FirstOrDefaultAsync();
            
