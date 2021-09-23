@@ -21,9 +21,9 @@ namespace BankIS.MVC.Controllers
 
         public string Seed()
         {
-            var xml = SeedDb.LoadFromXML();
+            var data_from_xml = SeedDb.LoadFromXML();
 
-            _context.AddRange(xml);
+            _context.AddRange(data_from_xml);
             _context.SaveChanges();
 
             return "ok";
@@ -43,8 +43,10 @@ namespace BankIS.MVC.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Clients
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var client =  await _context.Clients
+                .Where(m => m.Id == id)
+                .FirstOrDefaultAsync();
+           
             if (client == null)
             {
                 return NotFound();
