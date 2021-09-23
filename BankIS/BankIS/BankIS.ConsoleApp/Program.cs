@@ -21,28 +21,8 @@ namespace BankIS.ConsoleApp
                 Console.WriteLine($"Počet klientů v seznamu: {cnt}");
                 Console.WriteLine();
 
-                //seskupit podle mesta
 
-                var result = context.Clients
-                    .Where(x => x.Age > 50)
-                    //.Where(c => string.IsNullOrWhiteSpace(c.Name))
-                    .ToList()
-                    .Where(c => Client.CheckName(c))
-                    .ToList()
-                    ;
-
-                //foreach (var group in groupped)
-                //{
-                //    Console.WriteLine($"podle veku:  {group.Key} - pocet: ");
-
-                //    //foreach (var client in group.Clients)
-                //    //{
-                //    //    Console.WriteLine("    " + client);
-                //    //}
-                //}
-
-                Console.WriteLine("x");
-
+               
                 //context.Remove(oldest);
                 //context.SaveChanges();
 
