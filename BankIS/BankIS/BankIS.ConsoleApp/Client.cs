@@ -89,5 +89,10 @@ namespace BankIS.ConsoleApp
 
             return result;
         }
+
+        public static bool CheckName(Client client)
+        {
+            return !string.IsNullOrWhiteSpace(client.Name);
+        }
     }
 }

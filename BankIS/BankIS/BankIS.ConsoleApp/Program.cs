@@ -23,9 +23,13 @@ namespace BankIS.ConsoleApp
 
                 //seskupit podle mesta
 
-                var groupped = context.Clients
-                    .GroupBy(x => x.Age)
-                    .ToList();
+                var result = context.Clients
+                    .Where(x => x.Age > 50)
+                    //.Where(c => string.IsNullOrWhiteSpace(c.Name))
+                    .ToList()
+                    .Where(c => Client.CheckName(c))
+                    .ToList()
+                    ;
 
                 //foreach (var group in groupped)
                 //{
