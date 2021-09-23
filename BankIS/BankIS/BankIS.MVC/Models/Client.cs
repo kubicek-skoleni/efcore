@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace BankIS.MVC.Models
 {
+    [Index(nameof(LastName))]
     public class Client
     {
-
         public Client()
         {
             HomeAddress = new Address();
@@ -48,7 +49,7 @@ namespace BankIS.MVC.Models
             }
             else
             {
-                throw new Exception("DateOfBirth is null. Not suppported.");
+                return -1;
             }
         }
 
