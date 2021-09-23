@@ -56,6 +56,11 @@ namespace BankIS.MVC.Models
             }
         }
 
+        public double AccountSum()
+        {
+            return Transactions.Select(t => t.Value).Sum();
+        }
+
         /// <summary>
         /// Vytiskne do konzole jmeno a adresu klienta
         /// </summary>

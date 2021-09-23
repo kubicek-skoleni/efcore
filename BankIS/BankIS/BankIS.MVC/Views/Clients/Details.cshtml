@@ -30,10 +30,12 @@
         </dd>
     </dl>
     <div>
+        <h4>Stav (suma) účtu: @Model.AccountSum()</h4>
+
         <h4>Transakce:</h4>
         @foreach(var tx in Model.Transactions)
         {
-            <p>@tx.Date.ToString() - @tx.Value.ToString() </p>
+            <p>@tx.Date.ToString() : @tx.Value.ToString() </p>
         }
     </div>
 </div>
