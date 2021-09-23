@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace BankIS.MVC.Models
 {
     //[Index(nameof(LastName))]
+    //[Table()]
     public class Client
     {
         public Client()
@@ -29,6 +30,7 @@ namespace BankIS.MVC.Models
         [Required]
         public string LastName { get; set; }
 
+        //[Column()]
         public DateTime? DateOfBirth { get; set; }
 
         public Address HomeAddress { get; set; }

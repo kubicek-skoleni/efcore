@@ -21,6 +21,8 @@ namespace BankIS.MVC.Data
             modelBuilder
                 .Entity<Client>()
                 .HasIndex(c => c.LastName);
+
+            
         }
 
 
