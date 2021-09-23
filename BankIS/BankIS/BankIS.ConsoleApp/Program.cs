@@ -21,10 +21,23 @@ namespace BankIS.ConsoleApp
                 Console.WriteLine($"Počet klientů v seznamu: {cnt}");
                 Console.WriteLine();
 
-                //najit nejstarsiho klienta
-                var oldest = context.Clients.OrderByDescending(c => c.Age).First();
+                //seskupit podle mesta
 
-                oldest.Print();
+                var groupped = context.Clients
+                    .GroupBy(x => x.Age)
+                    .ToList();
+
+                //foreach (var group in groupped)
+                //{
+                //    Console.WriteLine($"podle veku:  {group.Key} - pocet: ");
+
+                //    //foreach (var client in group.Clients)
+                //    //{
+                //    //    Console.WriteLine("    " + client);
+                //    //}
+                //}
+
+                Console.WriteLine("x");
 
                 //context.Remove(oldest);
                 //context.SaveChanges();
