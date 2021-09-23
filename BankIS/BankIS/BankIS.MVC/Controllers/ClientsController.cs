@@ -44,10 +44,22 @@ namespace BankIS.MVC.Controllers
             }
 
             var client =  await _context
-                .Clients.Include(c => c.Transactions)
+                .Clients
+                .Include(c => c.HomeAddress)
                 .Where(m => m.Id == id)
                 .FirstOrDefaultAsync();
-           
+
+            var addr = _context
+                .Clients
+                .Include(c => c.HomeAddress)
+                .Where(m => m.Id == id)
+                .Select(x => x.HomeAddress)
+                .FirstOrDefault()
+                ;
+
+            client.HomeAddress = addr;
+
+
             if (client == null)
             {
                 return NotFound();

@@ -12,12 +12,7 @@ namespace BankIS.MVC.Models
         {
 
         }
-        public Address(string street, string city)
-        {
-            Street = street;
-            City = city;
-        }
-
+        
         public int Id { get; set; }
         public string Street { get; set; }
 
