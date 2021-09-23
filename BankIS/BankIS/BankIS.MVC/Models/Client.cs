@@ -32,6 +32,8 @@ namespace BankIS.MVC.Models
 
         public Address HomeAddress { get; set; }
 
+        public List<Transaction> Transactions { get; set; }
+
         [NotMapped]
         public int Age 
         {
