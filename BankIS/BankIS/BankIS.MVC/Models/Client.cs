@@ -24,9 +24,10 @@ namespace BankIS.MVC.Models
         public string FirstName { get; set; }
 
         [MaxLength(100)]
+        [Required]
         public string LastName { get; set; }
 
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
         public Address HomeAddress { get; set; }
 
@@ -41,7 +42,14 @@ namespace BankIS.MVC.Models
 
         public int GetAge()
         {
-            return DateTime.Now.Year - DateOfBirth.Year;
+            if (DateOfBirth.HasValue)
+            {
+                return DateTime.Now.Year - DateOfBirth.Value.Year;
+            }
+            else
+            {
+                throw new Exception("DateOfBirth is null. Not suppported.");
+            }
         }
 
         /// <summary>
