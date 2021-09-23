@@ -7,6 +7,7 @@ namespace BankIS.MVC.Data
     {
         public BankContext(DbContextOptions<BankContext> options) : base(options)
         {
+
         }
 
         public DbSet<Client> Clients { get; set; }
