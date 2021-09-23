@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BankIS.MVC.Models
 {
-    [Index(nameof(LastName))]
+    //[Index(nameof(LastName))]
     public class Client
     {
         public Client()
